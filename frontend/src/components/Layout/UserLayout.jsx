@@ -1,5 +1,12 @@
+//It will contain Header, Main Content, Footer
+import Header from "../Common/Header.jsx";
+
 const UserLayout = () => {
-  return <>//It will contain Header, Main Content, Footer</>;
+  return (
+    <>
+      <Header />
+    </>
+  );
 };
 
 export default UserLayout;

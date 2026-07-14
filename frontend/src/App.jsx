@@ -1,14 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout";
-import AdminLayout from "./components/Layout/AdminLAyout";
+import AdminLayout from "./components/Layout/AdminLayout";
 
 const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        //User Layout
+        {/* User Layout */}
         <Route path="/" element={<UserLayout />}></Route>
-        //Admin Layout
+        {/* Admin Layout */}
         <Route path="/admin" element={<AdminLayout />}></Route>
       </Routes>
     </BrowserRouter>

@@ -6,7 +6,7 @@ const Topbar = () => {
   return (
     <div className="bg-red-600 text-white">
       <div className="container mx-auto flex justify-between items-center py-3 px-4">
-        <div className="hidden md:flex items-center space-x-4">
+        <div className=" hidden md:flex flex-1 items-center space-x-4">
           {/* 1st icon */}
           <a href="#" className="hover:text-gray-300">
             <TbBrandMeta className="h-5 w-5" />
@@ -20,11 +20,13 @@ const Topbar = () => {
             <RiTwitterXLine className="h-4 w-4" />
           </a>
         </div>
-        <div className="text-sm text-center flex-grow">
-          <span>We ship world-wide- Fast and reliable shipping</span>
+        <div className="flex-1 text-sm text-center ">
+          <span className="ml-2">
+            We ship world-wide- Fast and reliable shipping
+          </span>
         </div>
 
-        <div className="hidden text-sm md:block">
+        <div className="hidden md:flex flex-1 justify-end text-sm">
           <a href="tel:+1234567890" className="hover:text-gray-300">
             +1 (234) 567-890
           </a>

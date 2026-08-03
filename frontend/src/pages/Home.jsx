@@ -1,4 +1,6 @@
 import Hero from "../components/Layout/Hero.jsx";
+import FeaturedCollection from "../components/Products/FeaturedCollection.jsx";
+import FeaturesSection from "../components/Products/FeaturesSection.jsx";
 import GenderCollectionSection from "../components/Products/GenderCollectionSection.jsx";
 import NewArrivals from "../components/Products/NewArrivals.jsx";
 import ProductDetails from "../components/Products/ProductDetails.jsx";
@@ -73,6 +75,9 @@ const Home = () => {
         <div className="w-20 h-1 bg-red-600 mx-auto mt-3 rounded-full mb-4"></div>
         <ProductGrid products={placeholderProducts} />
       </div>
+
+      <FeaturedCollection />
+      <FeaturesSection />
     </div>
   );
 };

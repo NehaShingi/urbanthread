@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
-
+import { toast } from "sonner";
+import ProductGrid from "./ProductGrid";
 const selectedProduct = {
   name: "Stylish Jacket",
   price: 120,
@@ -20,6 +21,33 @@ const selectedProduct = {
     },
   ],
 };
+
+const similarProducts = [
+  {
+    _id: 1,
+    name: "Product 1",
+    price: 100,
+    images: [{ url: "https://picsum.photos/500/500?random=1" }],
+  },
+  {
+    _id: 2,
+    name: "Product 2",
+    price: 100,
+    images: [{ url: "https://picsum.photos/500/500?random=2" }],
+  },
+  {
+    _id: 3,
+    name: "Product 3",
+    price: 100,
+    images: [{ url: "https://picsum.photos/500/500?random=3" }],
+  },
+  {
+    _id: 4,
+    name: "Product 4",
+    price: 100,
+    images: [{ url: "https://picsum.photos/500/500?random=4" }],
+  },
+];
 
 const ProductDetails = () => {
   const [mainImage, setMainImage] = useState("");
@@ -45,6 +73,21 @@ const ProductDetails = () => {
     if (action === "minus" && quantity > 1) {
       setQuantity((prev) => prev - 1);
     }
+  };
+
+  const handleAddToCart = () => {
+    if (!selectedSize || !selectedColor) {
+      toast.error("Please select size and color before adding to cart.", {
+        duration: 1000,
+      });
+      return;
+    }
+
+    setIsButtonDisabled(true);
+    setTimeout(() => {
+      toast.success("Product added to cart!", { duration: 1000 });
+      setIsButtonDisabled(false);
+    }, 500);
   };
 
   return (
@@ -170,8 +213,12 @@ const ProductDetails = () => {
               </div>
             </div>
 
-            <button className="bg-black text-white py-2 px-6 rounded w-full mb-4">
-              ADD TO CART
+            <button
+              className={`bg-black text-white py-2 px-6 rounded w-full mb-4 ${isButtonDisabled ? "opacity-50 cursor-not-allowed" : "hover:bg-gray-900"}`}
+              disabled={isButtonDisabled}
+              onClick={handleAddToCart}
+            >
+              {isButtonDisabled ? "Adding..." : "ADD TO CART"}
             </button>
 
             <div className="mt-10 text-gray-700">
@@ -191,6 +238,13 @@ const ProductDetails = () => {
               </table>
             </div>
           </div>
+        </div>
+        <div className="mt-20">
+          <h2 className="text-2xl text-center font-medium mb-4">
+            You May Also Like
+          </h2>
+          <div className="w-20 h-1 bg-red-600 mx-auto mt-3 rounded-full mb-3"></div>
+          <ProductGrid products={similarProducts} />
         </div>
       </div>
     </div>

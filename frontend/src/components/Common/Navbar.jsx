@@ -20,12 +20,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav className="container mx-auto flex justify-between items-center py-4 px-6">
+      <nav className="container mx-auto flex justify-between items-center py-3 px-4 sm:px-6">
         {/*Logo- Left Side of navbar*/}
         <div>
           <Link
             to="/"
-            className="text-3xl tracking-wide transition-all duration-300 hover:opacity-80"
+            className="text-xl sm:text-3xl tracking-wide transition-all duration-300 hover:opacity-80"
           >
             <span className="font-light text-black">Urban</span>
             <span className="font-extrabold text-red-600">Thread</span>
@@ -61,7 +61,7 @@ const Navbar = () => {
         </div>
 
         {/*Right- Icons*/}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center gap-4">
           <Link to="/profile" className="hover:text-black">
             <HiOutlineUser className="h-6 w-6 text-gray-700" />
           </Link>

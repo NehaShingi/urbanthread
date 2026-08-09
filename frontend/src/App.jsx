@@ -8,6 +8,8 @@ import Register from "./pages/Register.jsx";
 import Profile from "./pages/Profile.jsx";
 import CollectionPage from "./pages/CollectionPage.jsx";
 import ProductDetails from "./components/Products/ProductDetails.jsx";
+import Checkout from "./components/Cart/Checkout.jsx";
+import OrderConfirmationPage from "./pages/OrderConfirmationPage.jsx";
 const App = () => {
   return (
     <BrowserRouter>
@@ -21,6 +23,11 @@ const App = () => {
           <Route path="profile" element={<Profile />} />
           <Route path="collections/:collection" element={<CollectionPage />} />
           <Route path="product/:id" element={<ProductDetails />} />
+          <Route path="checkout" element={<Checkout />} />
+          <Route
+            path="order-confirmation"
+            element={<OrderConfirmationPage />}
+          />
         </Route>
         {/* Admin Layout */}
         <Route path="/admin" element={<AdminLayout />}></Route>

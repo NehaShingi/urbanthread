@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const MyOrderPage = () => {
   const [orders, setOrders] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     //Simulate fetching orders from an API
     setTimeout(() => {
@@ -38,8 +39,12 @@ const MyOrderPage = () => {
       setOrders(mockOrders);
     }, 1000);
   }, []);
+
+  const handleRowClick = (orderId) => {
+    navigate(`/order/${orderId}`);
+  };
   return (
-    <div className="w-full">
+    <div className="max-w-7xl mx-auto px-4 py-6">
       <h2 className="text-xl sm:text-2xl font-bold mb-2">My Orders</h2>
       <div className="w-24 h-1 bg-red-600  rounded-full mb-6"></div>
 
@@ -49,6 +54,7 @@ const MyOrderPage = () => {
           orders.map((order) => (
             <div
               key={order._id}
+              onClick={() => handleRowClick(order._id)}
               className="bg-white p-4 rounded-lg border border-gray-200 transition-all duration-300 hover:border-red-600 hover:shadow-lg"
             >
               {/* Top Section */}
@@ -150,6 +156,7 @@ const MyOrderPage = () => {
               orders.map((order) => (
                 <tr
                   key={order._id}
+                  onClick={() => handleRowClick(order._id)}
                   className="border-b hover:bg-red-50 transition-colors duration-200 cursor-pointer"
                 >
                   {/*Order Image*/}

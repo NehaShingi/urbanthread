@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import UserLayout from "./components/Layout/UserLayout";
-import AdminLayout from "./components/Layout/AdminLayout";
+import AdminLayout from "./components/Admin/AdminLayout.jsx";
 import Home from "./pages/Home.jsx";
 import { Toaster } from "sonner";
 import Login from "./pages/Login.jsx";
@@ -12,6 +12,7 @@ import Checkout from "./components/Cart/Checkout.jsx";
 import OrderConfirmationPage from "./pages/OrderConfirmationPage.jsx";
 import OrderDetailsPage from "./pages/OrderDetailsPage.jsx";
 import MyOrderPage from "./pages/MyOrdersPage.jsx";
+import AdminHomePage from "./pages/AdminHomePage.jsx";
 const App = () => {
   return (
     <BrowserRouter>
@@ -31,10 +32,12 @@ const App = () => {
             element={<OrderConfirmationPage />}
           />
           <Route path="order/:id" element={<OrderDetailsPage />} />
-          <Route path="/my-orders" element={<MyOrderPage />} />
+          <Route path="my-orders" element={<MyOrderPage />} />
         </Route>
         {/* Admin Layout */}
-        <Route path="/admin" element={<AdminLayout />}></Route>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminHomePage />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );

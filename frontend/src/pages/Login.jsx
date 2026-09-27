@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import login from "../assets/login.webp";
+import { loginUser } from "../redux/slices/authSlice";
+import { useDispatch } from "react-redux";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const dispatch = useDispatch();
+
   const handleLogin = (e) => {
     e.preventDefault();
+    dispatch(loginUser({ email, password }));
   };
   return (
     <div className="flex min-h-screen">
